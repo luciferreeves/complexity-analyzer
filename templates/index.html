@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algorithm Complexity Analyzer</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          <div class="logo">Ω</div>
+          Algorithm Complexity Analyzer
+        </h1>
+      </header>
+
+      <div class="main-content">
+        <div class="editor-panel">
+          <div class="toolbar">
+            <label for="languageSelect" class="visually-hidden">Language</label>
+            <select
+              id="languageSelect"
+              class="language-select"
+              title="Language"
+              aria-label="Language"
+            >
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="go">Go</option>
+            </select>
+            <button type="button" class="analyze-btn" id="analyzeBtn">
+              <span>🔍 Analyze Complexity</span>
+            </button>
+          </div>
+          <div id="editor"></div>
+        </div>
+
+        <div class="results-panel">
+          <div class="results-header">
+            <h2>Analysis Results</h2>
+          </div>
+          <div class="results-content" id="resultsContent">
+            <div class="empty-state">
+              <p>Write your algorithm and click Analyze</p>
+            </div>
+          </div>
+          <div class="loading" id="loadingState">
+            <div class="spinner"></div>
+            <p>Analyzing algorithm...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
