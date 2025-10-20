@@ -12,16 +12,14 @@ RUN go mod download
 COPY . .
 RUN go build -o complexity-analyzer
 
-FROM debian:bookworm-slim
+FROM golang:1.24
 
 WORKDIR /complexity-analyzer
-
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends ca-certificates tzdata && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /complexity-analyzer/complexity-analyzer .
 COPY --from=builder /complexity-analyzer/templates ./templates
 COPY --from=builder /complexity-analyzer/static ./static
+
+EXPOSE 3000
 
 CMD ["./complexity-analyzer"]
