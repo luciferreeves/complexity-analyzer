@@ -21,5 +21,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends ca-certificates tzdata && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /complexity-analyzer/complexity-analyzer .
+COPY --from=builder /complexity-analyzer/templates ./templates
+COPY --from=builder /complexity-analyzer/static ./static
 
 CMD ["./complexity-analyzer"]
